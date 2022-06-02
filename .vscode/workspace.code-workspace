@@ -1,0 +1,16 @@
+{
+    "folders": [
+        {
+            "name": "Generator",
+            "path": "../generator"
+        },
+        {
+            "name": "Frontend",
+            "path": "../frontend",
+        },
+        {
+            "name": "Root",
+            "path": "../"
+        }
+    ]
+}

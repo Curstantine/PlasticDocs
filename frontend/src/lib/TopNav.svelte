@@ -22,6 +22,16 @@
 </script>
 
 <nav class="top-nav">
+	<mobile>
+		<button>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+				<path
+					d="M3,8H21a1,1,0,0,0,0-2H3A1,1,0,0,0,3,8Zm18,8H3a1,1,0,0,0,0,2H21a1,1,0,0,0,0-2Zm0-5H3a1,1,0,0,0,0,2H21a1,1,0,0,0,0-2Z"
+				/>
+			</svg>
+		</button>
+	</mobile>
+
 	<wrapper class="info">
 		<info>
 			{#if productIcon.length > 0}
@@ -71,6 +81,8 @@
 			</a>
 		{/each}
 	</links>
+
+	<mobile>sex</mobile>
 </nav>
 
 <style lang="scss">
@@ -81,9 +93,53 @@
 		background-color: var(--bg-1);
 		border-bottom: 1px solid var(--border);
 		align-items: center;
+		justify-content: start;
+
+		mobile {
+			display: none;
+		}
+
+		@media only screen and (max-width: 960px) {
+			padding: 0 2rem;
+			justify-content: space-between;
+			border-width: 2px;
+
+			mobile {
+				display: flex;
+
+				button {
+					display: flex;
+					flex-direction: row;
+					justify-content: center;
+					align-items: center;
+					height: 3rem;
+					width: 3rem;
+					border-radius: 5rem;
+					color: var(--text-dark);
+					transition: background-color 150ms ease-in;
+
+					&:hover {
+						background-color: var(--bg-2);
+					}
+
+					&:active {
+						background-color: var(--bg-3);
+					}
+
+					svg {
+						fill: currentColor;
+						height: 32px;
+					}
+				}
+			}
+		}
 
 		spacer {
 			border-right: 1px solid var(--border);
+
+			@media only screen and (max-width: 960px) {
+				display: none;
+			}
 		}
 
 		wrapper.info {
@@ -138,6 +194,10 @@
 			flex-direction: row;
 			margin-left: 4rem;
 			height: 2.5rem;
+
+			@media only screen and (max-width: 960px) {
+				display: none;
+			}
 
 			& > * {
 				margin-right: 1rem;

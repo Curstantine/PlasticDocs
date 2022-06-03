@@ -1,24 +1,11 @@
 <script lang="ts">
-	const productIcon = "/svelte.png";
-	const productName = "PlasticDocs";
-	const version = "0.0.1-dev";
-	let externalLinks: ExtLink[] = [
-		{
-			name: "GitHub",
-			url: "https://github.com/Curstantine/PlasticDocs",
-			icon: { value: "/GitHub-Mark-32px.png" },
-		},
-		{
-			name: "Discord",
-			url: "https://discord.com/invite/discord",
-		},
-	];
-
-	type ExtLink = {
-		name: string;
-		url: string;
-		icon?: { isRawSvg?: boolean; value: string } | string;
-	};
+	import ExtendSearch from "$lib/search/extend.svelte";
+	import {
+		PRODUCT_NAME,
+		PRODUCT_ICON,
+		DOC_VERSION,
+		EXTERNAL_LINKS,
+	} from "$common/constants";
 </script>
 
 <nav class="top-nav">
@@ -33,25 +20,25 @@
 	</mobile>
 
 	<wrapper class="info">
-		<info>
-			{#if productIcon.length > 0}
-				<img src={productIcon} height="48" alt="logo" />
+		<info class="left">
+			{#if PRODUCT_ICON.length > 0}
+				<img src={PRODUCT_ICON} height="48" alt="logo" />
 			{/if}
 
-			<span class="name">{productName}</span>
+			<span class="name">{PRODUCT_NAME}</span>
 
 			<container>
 				<span class="version">
-					{version}
+					{DOC_VERSION}
 				</span>
 			</container>
 		</info>
 	</wrapper>
 
-	<spacer style="height:2.25rem" />
+	<spacer class="hide-mobile" style="height:2.25rem" />
 
 	<links>
-		{#each externalLinks as item}
+		{#each EXTERNAL_LINKS as item}
 			<a class="item" href={item.url}>
 				{#if item.icon && (typeof item.icon === "string" || !item.icon.isRawSvg)}
 					<img
@@ -82,6 +69,12 @@
 		{/each}
 	</links>
 
+	<wrapper class="info hide-mobile">
+		<info class="right">
+			<ExtendSearch />
+		</info>
+	</wrapper>
+
 	<mobile>sex</mobile>
 </nav>
 
@@ -90,6 +83,7 @@
 		display: flex;
 		flex-direction: row;
 		height: 5rem;
+		overflow: hidden;
 		background-color: var(--bg-1);
 		border-bottom: 1px solid var(--border);
 		align-items: center;
@@ -97,6 +91,12 @@
 
 		mobile {
 			display: none;
+		}
+
+		.hide-mobile {
+			@media only screen and (max-width: 960px) {
+				display: none;
+			}
 		}
 
 		@media only screen and (max-width: 960px) {
@@ -136,10 +136,6 @@
 
 		spacer {
 			border-right: 1px solid var(--border);
-
-			@media only screen and (max-width: 960px) {
-				display: none;
-			}
 		}
 
 		wrapper.info {
@@ -152,8 +148,11 @@
 			flex-direction: row;
 			align-items: center;
 			justify-content: center;
-			width: 100%;
 
+			height: 3rem;
+		}
+
+		info.left {
 			* {
 				margin-right: 0.5rem;
 			}
@@ -189,11 +188,16 @@
 			}
 		}
 
+		info.right {
+			justify-content: end;
+		}
+
 		links {
 			display: flex;
 			flex-direction: row;
 			margin-left: 4rem;
 			height: 2.5rem;
+			flex: 1;
 
 			@media only screen and (max-width: 960px) {
 				display: none;

@@ -1,7 +1,13 @@
 <script lang="ts">
 	import LeftNav from "$lib/LeftNav.svelte";
 	import TopNav from "$lib/TopNav.svelte";
+	import { PRODUCT_NAME, DOC_FAVICON } from "$common/constants";
 </script>
+
+<svelte:head>
+	<link rel="icon" href={DOC_FAVICON} />
+	<title>{PRODUCT_NAME}</title>
+</svelte:head>
 
 <main>
 	<TopNav />
@@ -48,26 +54,24 @@
 			// end
 		}
 
-		html,
-		body,
-		#app {
-			margin: 0;
-			height: 100%;
-		}
+		// html,
+		// body,
+		// #app {
+		// 	margin: 0;
+		// 	height: 100%;
+		// }
 
 		// defaults
-		button {
-			margin: 0;
+		button,
+		input {
 			border: 0;
-			border-color: none;
-			background: none;
+
+			&:focus {
+				outline: none;
+			}
 		}
 
-		h1,
-		h2,
-		span,
-		button,
-		a {
+		* {
 			font-family: var(--font-family);
 			text-decoration: none;
 		}

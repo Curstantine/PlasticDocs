@@ -2,7 +2,7 @@
 	export let viewBox: string = "0 0 24 24";
 </script>
 
-<button>
+<button on:click>
 	<svg xmlns="http://www.w3.org/2000/svg" {viewBox}>
 		<slot />
 	</svg>

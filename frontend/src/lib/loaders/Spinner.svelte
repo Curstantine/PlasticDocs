@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { fade } from "svelte/transition";
 	import { afterUpdate, onMount } from "svelte";
 
 	export let height: number = 32;
@@ -24,6 +25,7 @@
 	{height}
 	viewBox="0 0 16 16"
 	role="progressbar"
+	transition:fade={{ delay: 400, duration: 150 }}
 >
 	<circle class="spinner-ring" cx="50%" cy="50%" r="7" />
 	<circle

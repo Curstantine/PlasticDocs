@@ -65,6 +65,7 @@
 		button,
 		input {
 			border: 0;
+			background: none;
 
 			&:focus {
 				outline: none;

@@ -1,3 +1,5 @@
+import type { ExtLink } from "./typings";
+
 // DOC CONFIG
 export const DOC_VERSION = "0.0.1-dev";
 export const DOC_FAVICON = "/favicon.ico";
@@ -16,10 +18,3 @@ export const EXTERNAL_LINKS: ExtLink[] = [
 		url: "https://discord.com/invite/discord",
 	},
 ];
-
-// IGNORE
-type ExtLink = {
-	name: string;
-	url: string;
-	icon?: { isRawSvg?: boolean; value: string } | string;
-};

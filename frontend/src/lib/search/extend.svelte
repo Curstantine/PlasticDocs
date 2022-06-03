@@ -1,9 +1,9 @@
 <script lang="ts">
-	let text: string;
+	import { searchString } from "$common/stores";
 </script>
 
 <search>
-	<input type="text" bind:value={text} placeholder="Search!" />
+	<input type="text" bind:value={$searchString} placeholder="Search!" />
 </search>
 
 <style lang="scss">

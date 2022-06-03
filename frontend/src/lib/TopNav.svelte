@@ -1,14 +1,19 @@
 <script lang="ts">
 	import ExtendSearch from "$lib/search/extend.svelte";
+	import { searchString } from "$common/stores";
+
 	import {
 		PRODUCT_NAME,
 		PRODUCT_ICON,
 		DOC_VERSION,
 		EXTERNAL_LINKS,
 	} from "$common/constants";
+	import ResultCard from "./search/ResultCard.svelte";
+
+	$: showResultCard = $searchString.length > 0;
 </script>
 
-<nav class="top-nav">
+<nav>
 	<mobile>
 		<button>
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -84,10 +89,15 @@
 			</svg>
 		</button>
 	</mobile>
+
+	{#if showResultCard}
+		<ResultCard data={[]} />
+	{/if}
 </nav>
 
 <style lang="scss">
-	.top-nav {
+	nav {
+		z-index: 10;
 		display: flex;
 		flex-direction: row;
 		height: 5rem;
@@ -110,7 +120,7 @@
 		@media only screen and (max-width: 960px) {
 			padding: 0 2rem;
 			justify-content: space-between;
-			border-width: 2px;
+			border-color: var(--text-accent);
 
 			mobile {
 				display: flex;

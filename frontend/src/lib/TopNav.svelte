@@ -6,9 +6,9 @@
 		DOC_VERSION,
 		EXTERNAL_LINKS,
 	} from "$common/constants";
-	import ExtendSearch from "$lib/search/extend.svelte";
+	import SearchBar from "$lib/search/SearchBar.svelte";
 	import IconButton from "./button/IconButton.svelte";
-	import ResultCard from "./search/ResultCard.svelte";
+	import ResultCard from "./search/SearchPrompt.svelte";
 
 	$: showResultCard = $forceAliveSearch || $searchString.length > 0;
 </script>
@@ -74,7 +74,7 @@
 
 	<wrapper class="info hide-mobile">
 		<info class="right">
-			<ExtendSearch />
+			<SearchBar />
 		</info>
 	</wrapper>
 

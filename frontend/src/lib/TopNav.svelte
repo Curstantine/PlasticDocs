@@ -1,13 +1,13 @@
 <script lang="ts">
-	import ExtendSearch from "$lib/search/extend.svelte";
 	import { searchString } from "$common/stores";
-
 	import {
 		PRODUCT_NAME,
 		PRODUCT_ICON,
 		DOC_VERSION,
 		EXTERNAL_LINKS,
 	} from "$common/constants";
+	import ExtendSearch from "$lib/search/extend.svelte";
+	import IconButton from "./button/IconButton.svelte";
 	import ResultCard from "./search/ResultCard.svelte";
 
 	$: showResultCard = $searchString.length > 0;
@@ -15,13 +15,11 @@
 
 <nav>
 	<mobile>
-		<button>
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-				<path
-					d="M12,10a2,2,0,1,0,2,2A2,2,0,0,0,12,10ZM5,10a2,2,0,1,0,2,2A2,2,0,0,0,5,10Zm14,0a2,2,0,1,0,2,2A2,2,0,0,0,19,10Z"
-				/>
-			</svg>
-		</button>
+		<IconButton>
+			<path
+				d="M12,10a2,2,0,1,0,2,2A2,2,0,0,0,12,10ZM5,10a2,2,0,1,0,2,2A2,2,0,0,0,5,10Zm14,0a2,2,0,1,0,2,2A2,2,0,0,0,19,10Z"
+			/>
+		</IconButton>
 	</mobile>
 
 	<wrapper class="info">
@@ -81,13 +79,11 @@
 	</wrapper>
 
 	<mobile>
-		<button>
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-				<path
-					d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z"
-				/>
-			</svg>
-		</button>
+		<IconButton>
+			<path
+				d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z"
+			/>
+		</IconButton>
 	</mobile>
 
 	{#if showResultCard}
@@ -107,50 +103,10 @@
 		align-items: center;
 		justify-content: start;
 
-		mobile {
-			display: none;
-		}
-
-		.hide-mobile {
-			@media only screen and (max-width: 960px) {
-				display: none;
-			}
-		}
-
 		@media only screen and (max-width: 960px) {
 			padding: 0 2rem;
 			justify-content: space-between;
 			border-color: var(--text-accent);
-
-			mobile {
-				display: flex;
-
-				button {
-					display: flex;
-					flex-direction: row;
-					justify-content: center;
-					align-items: center;
-					height: 3rem;
-					width: 3rem;
-					border-radius: 5rem;
-					color: var(--text-dark);
-					transition: background-color 150ms ease-in;
-
-					&:hover {
-						background-color: var(--bg-2);
-					}
-
-					&:active {
-						background-color: var(--bg-3);
-					}
-
-					svg {
-						fill: currentColor;
-						height: 30px;
-						width: 30px;
-					}
-				}
-			}
 		}
 
 		spacer {
@@ -160,6 +116,11 @@
 		wrapper.info {
 			min-width: 17rem;
 			padding: 0 1rem;
+
+			@media only screen and (max-width: 450px) {
+				padding: 0;
+				min-width: 0;
+			}
 		}
 
 		info {
@@ -167,7 +128,6 @@
 			flex-direction: row;
 			align-items: center;
 			justify-content: center;
-
 			height: 3rem;
 		}
 
@@ -202,8 +162,11 @@
 				align-items: center;
 				padding: 0.25rem;
 				border-radius: 0.25rem;
-
 				background-color: var(--bg-accent);
+
+				@media only screen and (max-width: 450px) {
+					display: none;
+				}
 			}
 		}
 

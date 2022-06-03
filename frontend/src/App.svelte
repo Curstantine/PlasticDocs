@@ -54,14 +54,20 @@
 			// end
 		}
 
-		// html,
-		// body,
-		// #app {
-		// 	margin: 0;
-		// 	height: 100%;
-		// }
+		mobile {
+			display: none;
 
-		// defaults
+			@media only screen and (max-width: 960px) {
+				display: block;
+			}
+		}
+
+		.hide-mobile {
+			@media only screen and (max-width: 960px) {
+				display: none;
+			}
+		}
+
 		button,
 		input {
 			border: 0;

@@ -13,7 +13,7 @@
 		<button>
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 				<path
-					d="M3,8H21a1,1,0,0,0,0-2H3A1,1,0,0,0,3,8Zm18,8H3a1,1,0,0,0,0,2H21a1,1,0,0,0,0-2Zm0-5H3a1,1,0,0,0,0,2H21a1,1,0,0,0,0-2Z"
+					d="M12,10a2,2,0,1,0,2,2A2,2,0,0,0,12,10ZM5,10a2,2,0,1,0,2,2A2,2,0,0,0,5,10Zm14,0a2,2,0,1,0,2,2A2,2,0,0,0,19,10Z"
 				/>
 			</svg>
 		</button>
@@ -75,7 +75,15 @@
 		</info>
 	</wrapper>
 
-	<mobile>sex</mobile>
+	<mobile>
+		<button>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+				<path
+					d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z"
+				/>
+			</svg>
+		</button>
+	</mobile>
 </nav>
 
 <style lang="scss">
@@ -128,7 +136,8 @@
 
 					svg {
 						fill: currentColor;
-						height: 32px;
+						height: 30px;
+						width: 30px;
 					}
 				}
 			}

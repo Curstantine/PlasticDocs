@@ -9,7 +9,7 @@
 </button>
 
 <style lang="scss">
-	:global(mobile) > button {
+	button {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
@@ -17,7 +17,7 @@
 		height: 3rem;
 		width: 3rem;
 		border-radius: 5rem;
-		color: var(--text-dark);
+		// color: var(--text-dark);
 		transition: background-color 150ms ease-in;
 
 		&:hover {

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import LeftNav from "$lib/LeftNav.svelte";
+	import LeftNav from "$lib/menu/LeftNav.svelte";
 	import TopNav from "$lib/TopNav.svelte";
 	import { PRODUCT_NAME, DOC_FAVICON } from "$common/constants";
 </script>
@@ -23,6 +23,7 @@
 		flex-direction: column;
 		width: 100%;
 		height: 100%;
+		background-color: var(--bg-1);
 
 		.folds {
 			display: flex;
@@ -32,28 +33,6 @@
 	}
 
 	:global {
-		.light {
-			// background colors
-			--bg-1: rgb(255, 255, 255);
-			--bg-2: rgb(248, 249, 252);
-			--bg-3: rgb(237, 239, 244);
-			--bg-accent: rgb(252, 220, 209);
-			// end
-
-			// text config
-			--font-family: "Nunito Sans", sans-serif;
-			--text-lighter: rgb(113, 127, 154);
-			--text-light: rgb(83, 87, 107);
-			--text-dark: rgb(47, 51, 72);
-			--text-accent: rgb(255, 62, 0);
-			// end
-
-			// misc
-			--red: rgb(229, 62, 62);
-			--border: rgb(237, 239, 244);
-			// end
-		}
-
 		mobile {
 			display: none;
 
@@ -68,6 +47,12 @@
 			}
 		}
 
+		html,
+		body,
+		#app {
+			height: 100%;
+		}
+
 		button,
 		input {
 			border: 0;
@@ -79,6 +64,7 @@
 		}
 
 		* {
+			transition: all 150ms ease-in;
 			font-family: var(--font-family);
 			text-decoration: none;
 		}

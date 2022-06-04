@@ -1,0 +1,45 @@
+.light {
+	// background colors
+	--bg-1: rgb(255, 255, 255);
+	--bg-2: rgb(248, 249, 252);
+	--bg-3: rgb(237, 239, 244);
+	--bg-accent: rgb(252, 220, 209);
+	// end
+
+	// text config
+	--font-family: "Nunito Sans", sans-serif;
+	--text-lighter: rgb(113, 127, 154);
+	--text-light: rgb(83, 87, 107);
+	--text-dark: rgb(47, 51, 72);
+	--text-accent: rgb(255, 62, 0);
+	--text-accent-lighter: rgba(255, 64, 0, 0.829);
+	// end
+
+	// misc
+	--red: rgb(229, 62, 62);
+	--border: rgb(237, 239, 244);
+	// end
+}
+
+.dark {
+	// background colors
+	--bg-1: rgb(23, 24, 25);
+	--bg-2: rgb(26, 28, 29);
+	--bg-3: rgb(38, 41, 42);
+	--bg-accent: rgba(255, 64, 0, 0.411);
+	// end
+
+	// text config
+	--font-family: "Nunito Sans", sans-serif;
+	--text-lighter: rgb(105, 102, 97);
+	--text-light: rgb(190, 185, 176);
+	--text-dark: rgb(232, 230, 227);
+	--text-accent: rgb(252, 236, 231);
+	--text-accent-lighter: rgba(252, 220, 209, 0.808);
+	// end
+
+	// misc
+	--red: rgb(229, 62, 62);
+	--border: rgb(44, 44, 44);
+	// end
+}

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { searchString, forceAliveSearch } from "$common/stores";
+
 	export let height = "2rem";
 	export let width = "16rem";
 	export let mobileSupport = false;
@@ -7,11 +8,16 @@
 	function handleChange() {
 		if (mobileSupport) $forceAliveSearch = true;
 		else $forceAliveSearch = false;
-	} 
+	}
 </script>
 
 <search style="height: {height}; width: {width};">
-	<input type="text" bind:value={$searchString} on:change={handleChange} placeholder="Search!" />
+	<input
+		type="text"
+		bind:value={$searchString}
+		on:change={handleChange}
+		placeholder="Search!"
+	/>
 </search>
 
 <style lang="scss">

@@ -1,0 +1,49 @@
+@mixin createListItem($nonHighLight: false) {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	min-height: 2rem;
+	width: 100%;
+	padding-left: 0.5rem;
+	border-radius: 0.25rem;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	transition: all 100ms ease-in;
+	color: var(--text-dark);
+
+	&:active,
+	&:hover {
+		color: var(--text-accent-lighter);
+	}
+
+	@if $nonHighLight {
+		&:active {
+			background-color: var(--bg-accent);
+			border-right: 1px solid var(--text-accent);
+		}
+	}
+
+	& > * {
+		margin-right: 0.65rem;
+
+		&:nth-last-child(1) {
+			margin-right: 0;
+		}
+	}
+
+	svg {
+		fill: currentColor;
+		height: 20px;
+		width: 20px;
+	}
+
+	span {
+		display: flex;
+		flex-direction: row;
+		justify-content: start;
+		text-align: start;
+		flex: 1;
+		font-size: 11.5pt;
+		font-weight: 550;
+	}
+}

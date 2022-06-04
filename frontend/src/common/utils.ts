@@ -1,26 +1,27 @@
-class Theme {
-	public _mode: "light" | "dark";
+export class Theme {
+	public mode: "light" | "dark";
 
 	constructor() {
-		this.mode =
-			(localStorage.getItem("themeMode") as typeof this._mode) ?? "light";
+		this.setMode(
+			(localStorage.getItem("themeMode") as typeof this.mode) ?? "light"
+		);
 	}
 
-	public set mode(t_mode: typeof this._mode) {
-		this._mode = t_mode;
+	public setMode(mode: typeof this.mode) {
+		this.mode = mode;
 
-		if (t_mode === "light") {
+		if (mode === "light") {
 			document.documentElement.classList.value = "light";
 		} else {
 			document.documentElement.classList.value = "dark";
 		}
 
-		localStorage.setItem("themeMode", t_mode);
+		localStorage.setItem("themeMode", mode);
 	}
 
-	public get mode() {
-		return this._mode;
+	public invert() {
+		this.setMode(this.mode === "light" ? "dark" : "light");
 	}
 }
 
-export const themeHandler = new Theme();
+export const ThemeKey = Symbol();

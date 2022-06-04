@@ -1,4 +1,4 @@
-import type { ExtLink } from "./typings";
+import type { ExtLink, Page } from "./typings";
 
 // DOC CONFIG
 export const DOC_VERSION = "0.0.1-dev";
@@ -19,4 +19,11 @@ export const EXTERNAL_LINKS: ExtLink[] = [
 	},
 ];
 
-export const routes = {};
+export const PAGES: Page[] = [];
+
+export const routes = PAGES.reduce((acc, page) => {
+	acc[page.path] = page.relative_local_path;
+	return acc;
+}, {});
+
+console.log(routes);

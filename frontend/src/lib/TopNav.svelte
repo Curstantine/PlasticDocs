@@ -7,10 +7,10 @@
 		PRODUCT_ICON,
 		DOC_VERSION,
 		EXTERNAL_LINKS,
-	} from "$common/constants";
+	} from "$common/configuration";
 	import SearchBar from "$lib/search/SearchBar.svelte";
-	import IconButton from "./button/IconButton.svelte";
-	import ResultCard from "./search/SearchPrompt.svelte";
+	import IconButton from "$lib/button/IconButton.svelte";
+	import ResultCard from "$lib/search/SearchPrompt.svelte";
 
 	const themeHandler = getContext<Theme>(ThemeKey);
 	$: showResultCard = $forceAliveSearch || $searchString.length > 0;

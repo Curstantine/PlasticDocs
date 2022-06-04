@@ -9,3 +9,12 @@ export type SearchData = {
 	description: string;
 	path: string;
 };
+
+export type Page = {
+	name: string;
+	path: string;
+	/**
+	 * Relative to $routes/
+	 */
+	relative_local_path: string;
+};

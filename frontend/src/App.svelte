@@ -2,8 +2,8 @@
 	import Router from "svelte-spa-router";
 	import LeftNav from "$lib/menu/LeftNav.svelte";
 	import TopNav from "$lib/TopNav.svelte";
-	import { PRODUCT_NAME, DOC_FAVICON } from "$common/constants";
-	import { routes } from "$common/constants";
+	import { PRODUCT_NAME, DOC_FAVICON } from "$common/configuration";
+	import { routes } from "$common/configuration";
 </script>
 
 <svelte:head>
@@ -12,13 +12,12 @@
 </svelte:head>
 
 <main>
-	<Router {routes}>
-		<TopNav />
+	<TopNav />
 
-		<div class="folds">
-			<LeftNav />
-		</div>
-	</Router>
+	<div class="folds">
+		<LeftNav />
+		<Router {routes} />
+	</div>
 </main>
 
 <style lang="scss">

@@ -9,6 +9,7 @@ export default defineConfig({
 		alias: [
 			{ find: "$lib", replacement: resolve("src", "lib") },
 			{ find: "$common", replacement: resolve("src", "common") },
+			{ find: "$routes", replacement: resolve("src", "routes") },
 		],
 	},
 });

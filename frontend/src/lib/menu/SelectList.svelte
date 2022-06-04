@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { slide } from "svelte/transition";
+	import { backInOut, sineIn, sineInOut } from "svelte/easing";
+
 	export let name: string;
 	$: collapased = false;
 </script>
@@ -20,9 +23,14 @@
 		</button>
 	</row>
 
-	<group>
-		<slot />
-	</group>
+	{#if !collapased}
+		<group
+			class:collapased
+			transition:slide={{ duration: 150, easing: sineInOut }}
+		>
+			<slot />
+		</group>
+	{/if}
 </list>
 
 <style lang="scss">
@@ -76,6 +84,11 @@
 			flex-direction: column;
 			height: fit-content;
 			padding-left: 1.5rem;
+
+			&.collapased {
+				transition: display 50ms ease-in-out;
+				display: none;
+			}
 		}
 	}
 </style>

@@ -1,15 +1,16 @@
 <script lang="ts">
 	import { slide } from "svelte/transition";
-	import { backInOut, sineIn, sineInOut } from "svelte/easing";
+	import { sineInOut } from "svelte/easing";
 
 	export let name: string;
+	export let icon = "";
 	$: collapased = false;
 </script>
 
 <list class:collapased>
 	<row class="info" on:click={() => (collapased = !collapased)}>
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-			<slot name="icon" />
+			{icon}
 		</svg>
 
 		<span>{name}</span>

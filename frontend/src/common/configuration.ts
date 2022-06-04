@@ -25,5 +25,3 @@ export const routes = PAGES.reduce((acc, page) => {
 	acc[page.path] = page.relative_local_path;
 	return acc;
 }, {});
-
-console.log(routes);

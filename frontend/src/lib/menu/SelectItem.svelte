@@ -1,8 +1,11 @@
 <script lang="ts">
+	import { push } from "svelte-spa-router";
+
 	export let name: string;
+	export let path: string;
 </script>
 
-<button>
+<button on:click={() => push(path)}>
 	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 		<slot />
 	</svg>

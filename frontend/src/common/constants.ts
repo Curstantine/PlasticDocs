@@ -18,3 +18,5 @@ export const EXTERNAL_LINKS: ExtLink[] = [
 		url: "https://discord.com/invite/discord",
 	},
 ];
+
+export const routes = {};

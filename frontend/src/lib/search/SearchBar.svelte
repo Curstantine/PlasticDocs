@@ -31,7 +31,7 @@
 		transition: outline-color 150ms ease-out;
 
 		&:focus-within {
-			outline-color: var(--text-accent);
+			outline-color: var(--border-accent);
 		}
 	}
 

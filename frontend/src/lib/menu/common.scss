@@ -19,7 +19,7 @@
 	@if $nonHighLight {
 		&:active {
 			background-color: var(--bg-accent);
-			border-right: 1px solid var(--text-accent);
+			border-right: 1px solid var(--border-accent);
 		}
 	}
 

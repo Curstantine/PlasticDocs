@@ -25,7 +25,7 @@
 	{height}
 	viewBox="0 0 16 16"
 	role="progressbar"
-	transition:fade={{ delay: 400, duration: 150 }}
+	in:fade={{ delay: 400, duration: 150 }}
 >
 	<circle class="spinner-ring" cx="50%" cy="50%" r="7" />
 	<circle
@@ -70,7 +70,7 @@
 	}
 
 	.spinner .spinner-fill {
-		stroke: var(--text-accent);
+		stroke: var(--border-accent);
 		stroke-dasharray: 43.75;
 		animation: spinner-indeterminate 2s linear infinite;
 	}

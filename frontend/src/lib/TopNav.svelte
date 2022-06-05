@@ -11,6 +11,7 @@
 	import SearchBar from "$lib/search/SearchBar.svelte";
 	import IconButton from "$lib/button/IconButton.svelte";
 	import ResultCard from "$lib/search/SearchPrompt.svelte";
+	import { push } from "svelte-spa-router";
 
 	const themeHandler = getContext<Theme>(ThemeKey);
 	$: showResultCard = $forceAliveSearch || $searchString.length > 0;
@@ -26,9 +27,9 @@
 	</mobile>
 
 	<wrapper class="info">
-		<info class="left">
+		<info class="left" on:click={() => push("/")}>
 			{#if PRODUCT_ICON.length > 0}
-				<img src={PRODUCT_ICON} height="48" alt="logo" />
+				<img src={PRODUCT_ICON} height="45" alt="logo" />
 			{/if}
 
 			<span class="name">{PRODUCT_NAME}</span>
@@ -75,21 +76,21 @@
 		{/each}
 	</links>
 
-	<wrapper class="info">
+	<wrapper class="info hide-mobile">
 		<info class="right">
 			<SearchBar />
 		</info>
 	</wrapper>
 
-	<mobile>
-		<IconButton on:click={() => ($forceAliveSearch = true)}>
-			<path
-				d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z"
-			/>
-		</IconButton>
-	</mobile>
-
 	<wrapper class="button-list">
+		<mobile>
+			<IconButton on:click={() => ($forceAliveSearch = true)}>
+				<path
+					d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z"
+				/>
+			</IconButton>
+		</mobile>
+
 		<IconButton on:click={() => themeHandler.invert()}>
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 				<path
@@ -118,8 +119,12 @@
 
 		@media only screen and (max-width: 960px) {
 			padding: 0 2rem;
+			border-color: var(--border-accent);
 			justify-content: space-between;
-			border-color: var(--text-accent);
+		}
+
+		@media only screen and (max-width: 550px) {
+			padding: 0 0.5rem;
 		}
 
 		spacer {
@@ -130,7 +135,7 @@
 			min-width: 17rem;
 			padding: 0 1rem;
 
-			@media only screen and (max-width: 450px) {
+			@media only screen and (max-width: 500px) {
 				padding: 0;
 				min-width: 0;
 			}
@@ -140,10 +145,22 @@
 			display: flex;
 			flex-direction: row;
 			align-items: center;
-			margin-right: 0.5rem;
+			justify-content: space-between;
+			width: max-content;
+			margin-right: 1rem;
 
-			svg {
-				fill: var(--text-light);
+			@media only screen and (max-width: 960px) {
+				margin-right: 0;
+
+				& > * {
+					margin-right: 0.5rem;
+				}
+			}
+
+			@media only screen and (max-width: 450px) {
+				& > * {
+					margin-right: 0.25rem;
+				}
 			}
 		}
 
@@ -163,8 +180,24 @@
 		}
 
 		info.left {
+			min-width: 16rem;
+			justify-content: space-between;
+
+			@media only screen and (max-width: 960px) {
+				justify-content: center;
+				min-width: max-content;
+
+				& > * {
+					margin-right: 0;
+				}
+			}
+
 			span {
 				user-select: none;
+
+				@media only screen and (max-width: 350px) {
+					display: none;
+				}
 
 				&.name {
 					font-size: x-large;

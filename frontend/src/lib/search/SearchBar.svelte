@@ -28,7 +28,6 @@
 		border-radius: 0.25rem;
 		background-color: var(--bg-2);
 		outline: 1px solid var(--border);
-		transition: outline-color 150ms ease-out;
 
 		&:focus-within {
 			outline-color: var(--border-accent);

@@ -57,7 +57,6 @@
 				align-items: center;
 				justify-content: center;
 				border-radius: 5rem;
-				transition: background-color 150ms ease-in;
 				margin-right: 0.5rem;
 
 				width: 2rem;
@@ -67,7 +66,6 @@
 					height: 22px;
 					width: 22px;
 					fill: var(--text-light);
-					transition: all 150ms ease-in;
 				}
 
 				&:hover {
@@ -87,8 +85,8 @@
 			padding-left: 1.5rem;
 
 			&.collapased {
-				transition: display 50ms ease-in-out;
 				display: none;
+				transition: display 50ms ease-in-out;
 			}
 		}
 	}

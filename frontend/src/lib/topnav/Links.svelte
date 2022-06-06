@@ -84,7 +84,6 @@
 			}
 
 			span {
-				transition: all 150ms ease-in;
 				font-weight: 500;
 				font-size: medium;
 			}

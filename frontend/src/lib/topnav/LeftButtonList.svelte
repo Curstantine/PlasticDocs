@@ -1,12 +1,5 @@
 <script lang="ts">
-	import { getContext } from "svelte";
-
-	import { forceAliveSearch } from "$common/stores";
-	import { Theme, ThemeKey } from "$common/utils";
-
 	import IconButton from "$lib/button/IconButton.svelte";
-
-	const themeHandler = getContext<Theme>(ThemeKey);
 </script>
 
 <mobile>

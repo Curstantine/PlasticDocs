@@ -18,7 +18,6 @@
 		width: 3rem;
 		border-radius: 5rem;
 		color: var(--text-lighter);
-		transition: background-color 150ms ease-in;
 
 		&:hover {
 			background-color: var(--bg-2);

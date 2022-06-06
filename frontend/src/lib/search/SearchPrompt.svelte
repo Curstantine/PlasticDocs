@@ -13,8 +13,8 @@
 
 	export let data: Array<SearchData>;
 
-	$: showSpinner = !showNoContent && (!data || data.length === 0);
 	$: showNoContent = $searchString.length === 0;
+	$: showSpinner = !showNoContent && (!data || data.length === 0);
 
 	const handleCloseSearch = async () => {
 		$searchString = "";

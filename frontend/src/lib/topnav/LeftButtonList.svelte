@@ -1,10 +1,12 @@
 <script lang="ts">
+	import { forceAliveMenu } from "$common/stores";
+
 	import IconButton from "$lib/button/IconButton.svelte";
 </script>
 
 <mobile>
 	<wrapper>
-		<IconButton>
+		<IconButton on:click={() => ($forceAliveMenu = true)}>
 			<path
 				d="M12,10a2,2,0,1,0,2,2A2,2,0,0,0,12,10ZM5,10a2,2,0,1,0,2,2A2,2,0,0,0,5,10Zm14,0a2,2,0,1,0,2,2A2,2,0,0,0,19,10Z"
 			/>

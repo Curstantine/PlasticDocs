@@ -1,11 +1,30 @@
 <script>
 	import SelectItem from "./SelectItem.svelte";
 	import SelectList from "./SelectList.svelte";
+	import IconButton from "$lib/button/IconButton.svelte";
 
+	import { forceAliveMenu } from "$common/stores";
 	import { PAGES } from "$common/configuration";
+	import FlexibleDrop from "$lib/extra/FlexibleDrop.svelte";
+
+	function handleCloseSearch() {
+		$forceAliveMenu = false;
+	}
 </script>
 
-<nav class="top-nav">
+{#if $forceAliveMenu}
+	<FlexibleDrop />
+{/if}
+
+<nav class:mobile={$forceAliveMenu}>
+	<mobile class="action-bar">
+		<IconButton on:click={handleCloseSearch}>
+			<path
+				d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"
+			/>
+		</IconButton>
+	</mobile>
+
 	{#each PAGES as page}
 		{#if page.nested_routes}
 			<SelectList name={page.name} icon={page.item_icon_svg}>
@@ -35,7 +54,24 @@
 		padding-right: 0;
 
 		@media only screen and (max-width: 960px) {
-			display: none;
+			transform: translateX(-18rem);
+		}
+
+		@media only screen and (max-width: 960px) {
+			top: 0;
+			border-width: 0;
+			position: absolute;
+			display: flex;
+			background-color: var(--bg-1);
+
+			mobile.action-bar {
+				display: flex;
+				flex-direction: row;
+			}
+
+			&.mobile {
+				transform: translateX(0);
+			}
 		}
 	}
 </style>

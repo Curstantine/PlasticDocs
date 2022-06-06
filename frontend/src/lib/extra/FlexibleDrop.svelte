@@ -20,7 +20,7 @@
 		@media only screen and (max-width: 960px) {
 			top: 0;
 			height: 100%;
-			background: rgba(0, 0, 0, 0.05);
+			background: rgba(0, 0, 0, 0.1);
 		}
 	}
 </style>

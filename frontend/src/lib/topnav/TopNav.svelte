@@ -1,6 +1,11 @@
 <script lang="ts">
-	import { forceAliveSearch, searchString } from "$common/stores";
+	import {
+		forceAliveMenu,
+		forceAliveSearch,
+		searchString,
+	} from "$common/stores";
 
+	import LeftNav from "$lib/menu/LeftNav.svelte";
 	import ResultCard from "$lib/search/SearchPrompt.svelte";
 
 	import LeftButtonList from "./LeftButtonList.svelte";

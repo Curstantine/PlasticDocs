@@ -1,8 +1,10 @@
 <script lang="ts">
 	import Router from "svelte-spa-router";
+
+	import { PRODUCT_NAME, routes } from "$common/configuration";
+
 	import LeftNav from "$lib/menu/LeftNav.svelte";
 	import TopNav from "$lib/topnav/TopNav.svelte";
-	import { PRODUCT_NAME, routes } from "$common/configuration";
 </script>
 
 <svelte:head>

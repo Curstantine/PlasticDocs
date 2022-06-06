@@ -1,8 +1,8 @@
 import App from "./App.svelte";
-import { Theme, ThemeKey } from "$common/utils";
 
 // CSS
 import "$common/modern-normalize.css";
+import { Theme, ThemeKey } from "$common/utils";
 import "$common/variables.scss";
 
 const app = new App({

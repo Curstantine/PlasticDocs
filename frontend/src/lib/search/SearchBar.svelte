@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { searchString, forceAliveSearch } from "$common/stores";
+	import { forceAliveSearch, searchString } from "$common/stores";
 
 	export let height = "2rem";
 	export let width = "16rem";

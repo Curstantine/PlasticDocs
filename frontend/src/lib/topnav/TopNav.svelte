@@ -1,17 +1,19 @@
 <script lang="ts">
 	import { getContext } from "svelte";
-	import { ThemeKey, Theme } from "$common/utils";
-	import { forceAliveSearch, searchString } from "$common/stores";
+	import { push } from "svelte-spa-router";
+
 	import {
-		PRODUCT_NAME,
-		PRODUCT_ICON,
 		DOC_VERSION,
 		EXTERNAL_LINKS,
+		PRODUCT_ICON,
+		PRODUCT_NAME,
 	} from "$common/configuration";
-	import SearchBar from "$lib/search/SearchBar.svelte";
+	import { forceAliveSearch, searchString } from "$common/stores";
+	import { Theme, ThemeKey } from "$common/utils";
+
 	import IconButton from "$lib/button/IconButton.svelte";
+	import SearchBar from "$lib/search/SearchBar.svelte";
 	import ResultCard from "$lib/search/SearchPrompt.svelte";
-	import { push } from "svelte-spa-router";
 
 	const themeHandler = getContext<Theme>(ThemeKey);
 	$: showResultCard = $forceAliveSearch || $searchString.length > 0;

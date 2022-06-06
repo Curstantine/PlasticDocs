@@ -1,12 +1,15 @@
 <script lang="ts">
 	import { afterUpdate } from "svelte";
 	import { fade } from "svelte/transition";
-	import type { SearchData } from "$common/typings";
+
 	import { forceAliveSearch, searchString } from "$common/stores";
-	import Spinner from "$lib/loaders/Spinner.svelte";
+	import type { SearchData } from "$common/typings";
+
 	import IconButton from "$lib/button/IconButton.svelte";
-	import SearchBar from "./SearchBar.svelte";
 	import FlexibleDrop from "$lib/extra/FlexibleDrop.svelte";
+	import Spinner from "$lib/loaders/Spinner.svelte";
+
+	import SearchBar from "./SearchBar.svelte";
 
 	export let data: Array<SearchData>;
 

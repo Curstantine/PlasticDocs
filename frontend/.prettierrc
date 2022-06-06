@@ -1,4 +1,7 @@
 {
 	"useTabs": true,
-	"tabWidth": 4
+	"tabWidth": 4,
+	"importOrder": ["^svelte?.*", "^\\$common/(.*)$", "^\\$lib/(.*)$", "^[./]"],
+	"importOrderSeparation": true,
+	"importOrderSortSpecifiers": true
 }

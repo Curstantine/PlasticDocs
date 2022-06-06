@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { fade } from "svelte/transition";
 	import { afterUpdate, onMount } from "svelte";
+	import { fade } from "svelte/transition";
 
 	export let height: number = 32;
 	export let width: number = 32;

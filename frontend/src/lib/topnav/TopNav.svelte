@@ -183,13 +183,9 @@
 			min-width: 16rem;
 			justify-content: space-between;
 
-			@media only screen and (max-width: 960px) {
+			@media only screen and (max-width: 450px) {
 				justify-content: center;
 				min-width: max-content;
-
-				& > * {
-					margin-right: 0;
-				}
 			}
 
 			span {

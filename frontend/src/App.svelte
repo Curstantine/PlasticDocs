@@ -1,13 +1,11 @@
 <script lang="ts">
 	import Router from "svelte-spa-router";
 	import LeftNav from "$lib/menu/LeftNav.svelte";
-	import TopNav from "$lib/TopNav.svelte";
-	import { PRODUCT_NAME, DOC_FAVICON } from "$common/configuration";
-	import { routes } from "$common/configuration";
+	import TopNav from "$lib/topnav/TopNav.svelte";
+	import { PRODUCT_NAME, routes } from "$common/configuration";
 </script>
 
 <svelte:head>
-	<link rel="icon" href={DOC_FAVICON} />
 	<title>{PRODUCT_NAME}</title>
 </svelte:head>
 

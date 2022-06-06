@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { afterUpdate } from "svelte";
 	import { fade } from "svelte/transition";
 	import type { SearchData } from "$common/typings";
 	import { forceAliveSearch, searchString } from "$common/stores";
@@ -12,10 +13,22 @@
 	$: showSpinner = !showNoContent && (!data || data.length === 0);
 	$: showNoContent = $searchString.length === 0;
 
-	const handleCloseSearch = () => {
+	const handleCloseSearch = async () => {
 		$searchString = "";
 		$forceAliveSearch = false;
 	};
+
+	afterUpdate(() => {
+		// cleans redundent styles after an update happens.
+		// should be removed when https://github.com/sveltejs/svelte/issues/7164
+		// is fixed
+		setTimeout(() => {
+			const styles = document.head.getElementsByTagName("style");
+			for (const style of styles) {
+				if (style.innerHTML.length === 0) style.remove();
+			}
+		}, 1000);
+	});
 </script>
 
 <FlexibleDrop>
@@ -32,7 +45,7 @@
 			</wrapper>
 		</mobile>
 
-		<content class:load={showSpinner} class:no-content={showNoContent}>
+		<content class:no-content={showNoContent}>
 			{#if showSpinner}
 				<Spinner height={48} width={48} />
 			{:else if showNoContent}

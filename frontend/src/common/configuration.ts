@@ -2,7 +2,6 @@ import type { ExtLink, Page } from "./typings";
 
 // DOC CONFIG
 export const DOC_VERSION = "0.0.1-dev";
-export const DOC_FAVICON = "/favicon.ico";
 
 // PRODUCT CONFIG
 export const PRODUCT_NAME = "PlasticDocs";

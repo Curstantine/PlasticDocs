@@ -101,6 +101,11 @@
 
 			&.no-content {
 				padding: 0 2rem;
+				display: none;
+
+				@media only screen and (max-width: 960px) {
+					display: flex;
+				}
 
 				span {
 					color: var(--text-dark);

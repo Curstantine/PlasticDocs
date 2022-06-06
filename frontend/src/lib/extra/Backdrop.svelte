@@ -2,7 +2,7 @@
 	import { fade } from "svelte/transition";
 </script>
 
-<backdrop transition:fade={{ duration: 150 }}>
+<backdrop transition:fade={{ duration: 150 }} on:click>
 	<slot />
 </backdrop>
 
@@ -13,9 +13,6 @@
 		left: 0;
 		width: 100%;
 		height: calc(100% - 5rem);
-		display: flex;
-		flex-direction: row;
-		justify-content: end;
 
 		@media only screen and (max-width: 960px) {
 			top: 0;

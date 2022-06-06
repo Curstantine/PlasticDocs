@@ -14,8 +14,8 @@
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
-		height: 3rem;
-		width: 3rem;
+		height: 2.75rem;
+		width: 2.75rem;
 		border-radius: 5rem;
 		color: var(--text-lighter);
 
@@ -29,8 +29,8 @@
 
 		svg {
 			fill: currentColor;
-			height: 30px;
-			width: 30px;
+			height: 24px;
+			width: 24px;
 		}
 	}
 </style>

@@ -5,7 +5,7 @@
 
 	import { forceAliveMenu } from "$common/stores";
 	import { PAGES } from "$common/configuration";
-	import FlexibleDrop from "$lib/extra/FlexibleDrop.svelte";
+	import FlexibleDrop from "$lib/extra/Backdrop.svelte";
 
 	function handleCloseSearch() {
 		$forceAliveMenu = false;
@@ -13,7 +13,7 @@
 </script>
 
 {#if $forceAliveMenu}
-	<FlexibleDrop />
+	<FlexibleDrop on:click={() => ($forceAliveMenu = false)} />
 {/if}
 
 <nav class:mobile={$forceAliveMenu}>
@@ -54,15 +54,12 @@
 		padding-right: 0;
 
 		@media only screen and (max-width: 960px) {
-			transform: translateX(-18rem);
-		}
-
-		@media only screen and (max-width: 960px) {
 			top: 0;
 			border-width: 0;
 			position: absolute;
 			display: flex;
 			background-color: var(--bg-1);
+			transform: translateX(-18rem);
 
 			mobile.action-bar {
 				display: flex;
@@ -72,6 +69,11 @@
 			&.mobile {
 				transform: translateX(0);
 			}
+		}
+
+		@media only screen and (max-width: 350px) {
+			transform: translateX(-100%);
+			width: 100%;
 		}
 	}
 </style>

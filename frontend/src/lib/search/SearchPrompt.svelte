@@ -6,7 +6,7 @@
 	import type { SearchData } from "$common/typings";
 
 	import IconButton from "$lib/button/IconButton.svelte";
-	import FlexibleDrop from "$lib/extra/FlexibleDrop.svelte";
+	import FlexibleDrop from "$lib/extra/Backdrop.svelte";
 	import Spinner from "$lib/loaders/Spinner.svelte";
 
 	import SearchBar from "./SearchBar.svelte";
@@ -34,7 +34,9 @@
 	});
 </script>
 
-<FlexibleDrop>
+<FlexibleDrop on:click={handleCloseSearch} />
+
+<wrapper class="card">
 	<card>
 		<mobile class="action-bar">
 			<IconButton on:click={handleCloseSearch}>
@@ -58,9 +60,27 @@
 			{/if}
 		</content>
 	</card>
-</FlexibleDrop>
+</wrapper>
 
 <style lang="scss">
+	wrapper.card {
+		display: flex;
+		flex-direction: row;
+		justify-content: end;
+
+		position: absolute;
+		top: 5rem;
+		left: 0;
+		width: 100%;
+		height: calc(100% - 5rem);
+
+		@media only screen and (max-width: 960px) {
+			top: 0;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.1);
+		}
+	}
+
 	card {
 		display: flex;
 		flex-direction: column;
@@ -90,6 +110,10 @@
 					margin-left: 0.5rem;
 				}
 			}
+		}
+
+		@media only screen and (max-width: 550px) {
+			width: 100%;
 		}
 
 		content {

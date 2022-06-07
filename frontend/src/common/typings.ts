@@ -1,7 +1,7 @@
 export type ExtLink = {
 	name: string;
 	url: string;
-	icon?: { isRawSvg?: boolean; value: string } | string;
+	icon?: { isRawSvg?: boolean; value: string };
 };
 
 export type SearchData = {

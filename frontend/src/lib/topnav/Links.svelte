@@ -5,7 +5,7 @@
 <links>
 	{#each EXTERNAL_LINKS as item}
 		<a href={item.url}>
-			{#if item.icon && (typeof item.icon === "string" || !item.icon.isRawSvg)}
+			{#if item.icon || !item.icon.isRawSvg}
 				<img
 					src={typeof item.icon === "string"
 						? item.icon
@@ -15,7 +15,7 @@
 				/>
 			{:else}
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
-					{#if item.icon && typeof item.icon !== "string" && item.icon.isRawSvg}
+					{#if item.icon && item.icon.isRawSvg}
 						{item.icon.value}
 					{:else}
 						<g>

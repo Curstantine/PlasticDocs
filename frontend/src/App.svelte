@@ -1,10 +1,15 @@
 <script lang="ts">
 	import Router from "svelte-spa-router";
 
-	import { PRODUCT_NAME, routes } from "$common/configuration";
+	import { PAGES, PRODUCT_NAME } from "$common/configuration";
 
 	import LeftNav from "$lib/menu/LeftNav.svelte";
 	import TopNav from "$lib/topnav/TopNav.svelte";
+
+	export const routes = PAGES.reduce((acc, page) => {
+		acc[page.path] = page.relative_local_path;
+		return acc;
+	}, {});
 </script>
 
 <svelte:head>
